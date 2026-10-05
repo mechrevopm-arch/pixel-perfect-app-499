@@ -55,7 +55,7 @@ export function calculate(answers: Answers): MbtiResult {
     else if ((first === "S" || first === "J") && q25 !== 3) {
       // Q25 (instinct over plan) leans N / P when agreed, S / J when disagreed.
       winner = q25 > 3 ? second : first;
-    } else winner = FALLBACK[first + second];
+    } else winner = FALLBACK[first + second] ?? second;
 
     // Difference ranges 0..24 (6 questions x 4 points); map to 50..100%.
     const percent = Math.round(50 + (Math.abs(firstScore - secondScore) / 24) * 50);

@@ -85,7 +85,7 @@ function ResultPage() {
             <p className="mt-1 text-sm text-muted-foreground">Relative preference — your response tendency, not a precise measurement.</p>
             <div className="mt-6 space-y-6">
               {result.dimensions.map((d) => (
-                <ScoreBar key={d.first} name={LETTER_INFO[d.winner].name} percent={d.percent} balanced={d.balanced} />
+                <ScoreBar key={d.first} name={LETTER_INFO[d.winner]!.name} percent={d.percent} balanced={d.balanced} />
               ))}
             </div>
           </section>
@@ -97,8 +97,8 @@ function ResultPage() {
                 <div key={l} className="flex gap-4">
                   <dt className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary-soft font-display text-lg font-bold text-primary">{l}</dt>
                   <dd>
-                    <p className="font-semibold">{LETTER_INFO[l].name}</p>
-                    <p className="text-sm text-muted-foreground">{LETTER_INFO[l].text}</p>
+                    <p className="font-semibold">{LETTER_INFO[l]!.name}</p>
+                    <p className="text-sm text-muted-foreground">{LETTER_INFO[l]!.text}</p>
                   </dd>
                 </div>
               ))}
