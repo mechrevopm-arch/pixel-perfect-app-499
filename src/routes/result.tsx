@@ -35,7 +35,7 @@ function ResultPage() {
 
   if (!result) return <PageShell><div className="py-40 text-center text-muted-foreground">Loading your result…</div></PageShell>;
 
-  const t = TYPES[result.type];
+  const t = TYPES[result.type]!;
   const shareText = `I just discovered my MBTI personality type: ${t.type} — The ${t.name}!`;
 
   const flash = (m: string) => { setToast(m); setTimeout(() => setToast(null), 2500); };

@@ -24,7 +24,7 @@ function TestPage() {
   const { answers, index, hydrated } = useQuiz();
   const navigate = useNavigate();
   const [error, setError] = useState(false);
-  const q = QUESTIONS[index];
+  const q = QUESTIONS[index] ?? QUESTIONS[0]!;
   const selected = answers[index];
   const isLast = index === QUESTIONS.length - 1;
   const progress = Math.round(((index + 1) / QUESTIONS.length) * 100);
