@@ -57,9 +57,8 @@ export function calculate(answers: Answers): MbtiResult {
       winner = q25 > 3 ? second : first;
     } else winner = FALLBACK[first + second];
 
-    const total = firstScore + secondScore;
-    const winScore = winner === first ? firstScore : secondScore;
-    const percent = Math.round((winScore / total) * 100);
+    // Difference ranges 0..24 (6 questions x 4 points); map to 50..100%.
+    const percent = Math.round(50 + (Math.abs(firstScore - secondScore) / 24) * 50);
     return {
       first,
       second,
